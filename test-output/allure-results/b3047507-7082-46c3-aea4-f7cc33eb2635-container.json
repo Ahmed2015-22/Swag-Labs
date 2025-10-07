@@ -1,0 +1,1 @@
+{"uuid":"b3047507-7082-46c3-aea4-f7cc33eb2635","name":"com.SwagLabs.CheckOutTest","children":["840e2895-a94f-4cce-bf2c-dee51b5ae1d9"],"befores":[{"name":"preCondition","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1758974550524,"stop":1758974550539}],"afters":[],"start":1758974550429,"stop":1758974582274}
