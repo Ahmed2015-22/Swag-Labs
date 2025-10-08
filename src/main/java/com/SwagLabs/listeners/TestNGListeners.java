@@ -20,7 +20,7 @@ import java.io.File;
 
 public class TestNGListeners implements ISuiteListener, IExecutionListener, IInvokedMethodListener, ITestListener {
     public void onStart(ISuite suite) {
-        suite.getXmlSuite().setName("Automation Exercise");
+        suite.getXmlSuite().setName("General Framework Suite");
     }
     public void onExecutionStart() {
         LogsManager.info("Test Execution started");
@@ -57,7 +57,7 @@ public class TestNGListeners implements ISuiteListener, IExecutionListener, IInv
         WebDriver driver = null;
         if (method.isTestMethod())
         {
-            if (testResult.getInstance() instanceof UITest)
+            if (testResult.getInstance().getClass().isAnnotationPresent(UITest.class) )
             {
                 ScreenRecordManager.stopRecording(testResult.getName());
                 if (testResult.getInstance() instanceof WebDriverProvider provider)
