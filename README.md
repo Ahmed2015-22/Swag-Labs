@@ -1,6 +1,6 @@
 # 🧪 Automation Testing Framework
 
-### 🔍 Project: `selenium-testng-pom-TAF`
+### 🔍 Project: `Swag-Labs-TAF`
 
 A **robust, maintainable, and scalable Test Automation Framework (TAF)** built with **Selenium WebDriver**, **TestNG**, and industry best practices.  
 Designed for testing modern web applications with **data-driven capabilities**, **detailed reporting**, and **CI/CD integration**.
