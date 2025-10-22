@@ -25,3 +25,11 @@ Designed for testing modern web applications with **data-driven capabilities**, 
 
 ## 🏗️ Framework Structure
 
+## 👨‍💻 Author
+
+**Ahmed El-Sharkawi**  
+*Junior Test Automation Engineer*  
+
+🔗 [LinkedIn Profile](https://www.linkedin.com/in/ahmed-el-sharkawi/)
+
+
