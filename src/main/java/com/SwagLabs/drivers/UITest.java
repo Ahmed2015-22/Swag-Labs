@@ -1,4 +1,4 @@
-package com.SwagLabs.drivers;
+package com.swaglabs.drivers;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

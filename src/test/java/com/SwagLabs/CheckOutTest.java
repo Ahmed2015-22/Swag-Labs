@@ -1,9 +1,8 @@
-package com.SwagLabs;
+package com.swaglabs;
 
-import com.SwagLabs.drivers.GUIDriver;
-import com.SwagLabs.pages.LoginPage;
-import com.SwagLabs.utils.dataReader.JsonReader;
-import com.SwagLabs.utils.TimeManager;
+import com.swaglabs.drivers.GUIDriver;
+import com.swaglabs.pages.LoginPage;
+import com.swaglabs.utils.dataReader.JsonReader;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -17,7 +16,7 @@ public class CheckOutTest extends BaseTest {
     public void completeCheckOutTC()
     {
 
-        new LoginPage(driver).navigate().enterUsername(loginData.getJsonData("usernames"))
+        new LoginPage(driver).enterUsername(loginData.getJsonData("usernames"))
                 .enterPassword(loginData.getJsonData("password"))
                 .clickLoginButton()
                 .addProductOneToCart().addProductTwoToCart()
@@ -39,7 +38,7 @@ public class CheckOutTest extends BaseTest {
     @BeforeMethod
     public void setUp() {
         driver = new GUIDriver();
-        driver.browser().closeExtensionTab();
+        new LoginPage(driver).navigate();
     }
 
     @AfterMethod

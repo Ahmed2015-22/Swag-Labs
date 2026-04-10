@@ -1,12 +1,9 @@
-package com.SwagLabs.utils.actions;
+package com.swaglabs.utils.actions;
 
-import com.SwagLabs.utils.WaitManager;
-import com.SwagLabs.utils.logs.LogsManager;
-import org.openqa.selenium.Keys;
+import com.swaglabs.utils.WaitManager;
+import com.swaglabs.utils.logs.LogsManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WindowType;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class BrowserActions {
     private final WebDriver driver;
@@ -28,6 +25,7 @@ public class BrowserActions {
         return url;
     }
 
+
     // Navigate to a specific URL
     public void navigateTo(String url) {
         driver.get(url);
@@ -36,6 +34,7 @@ public class BrowserActions {
 
     // Refresh the current page
     public void refreshPage() {
+
         driver.navigate().refresh();
     }
 

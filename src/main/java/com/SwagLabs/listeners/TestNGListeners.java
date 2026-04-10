@@ -1,18 +1,15 @@
-package com.SwagLabs.listeners;
+package com.swaglabs.listeners;
 
-import com.SwagLabs.FileUtils;
-import com.SwagLabs.drivers.UITest;
-import com.SwagLabs.drivers.WebDriverProvider;
-import com.SwagLabs.media.ScreenRecordManager;
-import com.SwagLabs.media.ScreenshotsManager;
-import com.SwagLabs.utils.dataReader.PropertyReader;
-import com.SwagLabs.utils.logs.LogsManager;
-import com.SwagLabs.utils.report.AllureAttachmentManager;
-import com.SwagLabs.utils.report.AllureConstants;
-import com.SwagLabs.utils.report.AllureEnvironmentManager;
-import com.SwagLabs.utils.report.AllureReportGenerator;
-import com.SwagLabs.validations.Validation;
-import org.apache.xmlbeans.impl.xb.xsdschema.NamedGroup;
+import com.swaglabs.FileUtils;
+import com.swaglabs.drivers.WebDriverProvider;
+import com.swaglabs.media.ScreenshotsManager;
+import com.swaglabs.utils.dataReader.PropertyReader;
+import com.swaglabs.utils.logs.LogsManager;
+import com.swaglabs.utils.report.AllureAttachmentManager;
+import com.swaglabs.utils.report.AllureConstants;
+import com.swaglabs.utils.report.AllureEnvironmentManager;
+import com.swaglabs.utils.report.AllureReportGenerator;
+import com.swaglabs.validations.Validation;
 import org.openqa.selenium.WebDriver;
 import org.testng.*;
 
@@ -45,21 +42,17 @@ public class TestNGListeners implements ISuiteListener, IExecutionListener, IInv
 
     public void beforeInvocation(IInvokedMethod method, ITestResult testResult) {
         if (method.isTestMethod()) {
-            if (testResult.getInstance() instanceof UITest)
-            {
-                ScreenRecordManager.startRecording();
-            }
+
             LogsManager.info("Test Case " + testResult.getName() + " started");
         }
     }
 
-    public void afterInvocation(IInvokedMethod method, ITestResult testResult) {
+    /*public void afterInvocation(IInvokedMethod method, ITestResult testResult) {
         WebDriver driver = null;
         if (method.isTestMethod())
         {
             if (testResult.getInstance().getClass().isAnnotationPresent(UITest.class) )
             {
-                ScreenRecordManager.stopRecording(testResult.getName());
                 if (testResult.getInstance() instanceof WebDriverProvider provider)
                     driver = provider.getWebDriver(); //initialize driver from WebDriverProvider
                 switch (testResult.getStatus()){
@@ -67,15 +60,31 @@ public class TestNGListeners implements ISuiteListener, IExecutionListener, IInv
                     case ITestResult.FAILURE -> ScreenshotsManager.takeFullPageScreenshot(driver,"failed-" + testResult.getName());
                     case ITestResult.SKIP -> ScreenshotsManager.takeFullPageScreenshot(driver,"skipped-" + testResult.getName());
                 }
-                AllureAttachmentManager.attachRecords(testResult.getName());
                 AllureAttachmentManager.attachScreenshot("Full Page - " + testResult.getName() , ScreenshotsManager.SCREENSHOTS_PATH);
             }
 
             Validation.assertAll(testResult);
-
             AllureAttachmentManager.attachLogs();
 
-
+        }
+    }*/
+    public void afterInvocation(IInvokedMethod method, ITestResult testResult) {
+        WebDriver driver = null;
+        if (method.isTestMethod() && testResult.getInstance() instanceof WebDriverProvider provider) {
+            driver = provider.getWebDriver();
+            switch (testResult.getStatus()) {
+                case ITestResult.SUCCESS:
+                    ScreenshotsManager.takeFullPageScreenshot(driver, "passed-" + testResult.getName());
+                    break;
+                case ITestResult.FAILURE:
+                    ScreenshotsManager.takeFullPageScreenshot(driver, "failed-" + testResult.getName());
+                    break;
+                case ITestResult.SKIP:
+                    ScreenshotsManager.takeFullPageScreenshot(driver, "skipped-" + testResult.getName());
+                    break;
+            }
+            Validation.assertAll(testResult);
+            AllureAttachmentManager.attachLogs();
         }
     }
 
@@ -108,7 +117,6 @@ public class TestNGListeners implements ISuiteListener, IExecutionListener, IInv
         // Implement logic to clean test output directories
         FileUtils.cleanDirectory(AllureConstants.RESULTS_FOLDER.toFile());
         FileUtils.cleanDirectory(new File(ScreenshotsManager.SCREENSHOTS_PATH));
-        FileUtils.cleanDirectory(new File(ScreenRecordManager.RECORDINGS_PATH));
         FileUtils.cleanDirectory(new File("src/test/resources/downloads/"));
         FileUtils.forceDelete(new File(LogsManager.LOGS_PATH +"logs.log"));
     }
@@ -116,7 +124,6 @@ public class TestNGListeners implements ISuiteListener, IExecutionListener, IInv
     private void createTestOutputDirectories() {
         // Implement logic to create test output directories
         FileUtils.createDirectory(ScreenshotsManager.SCREENSHOTS_PATH);
-        FileUtils.createDirectory(ScreenRecordManager.RECORDINGS_PATH);
         FileUtils.createDirectory("src/test/resources/downloads/");
 
     }

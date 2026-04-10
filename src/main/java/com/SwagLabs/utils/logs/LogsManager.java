@@ -1,6 +1,6 @@
-package com.SwagLabs.utils.logs;
+package com.swaglabs.utils.logs;
 
-import com.SwagLabs.utils.report.AllureConstants;
+import com.swaglabs.utils.report.AllureConstants;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

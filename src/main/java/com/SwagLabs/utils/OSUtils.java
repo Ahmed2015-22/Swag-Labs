@@ -1,6 +1,6 @@
-package com.SwagLabs.utils;
+package com.swaglabs.utils;
 
-import com.SwagLabs.utils.dataReader.PropertyReader;
+import com.swaglabs.utils.dataReader.PropertyReader;
 
 public class OSUtils {
     public enum OS { WINDOWS, MAC, LINUX, OTHER }

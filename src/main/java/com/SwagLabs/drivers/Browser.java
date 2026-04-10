@@ -1,4 +1,4 @@
-package com.SwagLabs.drivers;
+package com.swaglabs.drivers;
 
 public enum Browser {
     CHROME {

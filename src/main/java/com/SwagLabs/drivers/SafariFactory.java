@@ -1,10 +1,9 @@
-package com.SwagLabs.drivers;
+package com.swaglabs.drivers;
 
-import com.SwagLabs.utils.dataReader.PropertyReader;
-import com.SwagLabs.utils.logs.LogsManager;
+import com.swaglabs.utils.dataReader.PropertyReader;
+import com.swaglabs.utils.logs.LogsManager;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.safari.SafariOptions;

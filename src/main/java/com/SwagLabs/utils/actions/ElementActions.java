@@ -1,7 +1,7 @@
-package com.SwagLabs.utils.actions;
+package com.swaglabs.utils.actions;
 
-import com.SwagLabs.utils.WaitManager;
-import com.SwagLabs.utils.logs.LogsManager;
+import com.swaglabs.utils.WaitManager;
+import com.swaglabs.utils.logs.LogsManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;

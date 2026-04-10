@@ -1,6 +1,6 @@
-package com.SwagLabs.utils.dataReader;
+package com.swaglabs.utils.dataReader;
 
-import com.SwagLabs.utils.logs.LogsManager;
+import com.swaglabs.utils.logs.LogsManager;
 import org.apache.commons.io.FileUtils;
 
 import java.io.File;

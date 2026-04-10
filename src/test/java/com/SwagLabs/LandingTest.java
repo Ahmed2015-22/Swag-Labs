@@ -1,10 +1,10 @@
-package com.SwagLabs;
+package com.swaglabs;
 
-import com.SwagLabs.drivers.GUIDriver;
-import com.SwagLabs.pages.LandingPage;
-import com.SwagLabs.pages.LoginPage;
-import com.SwagLabs.utils.TimeManager;
-import com.SwagLabs.utils.dataReader.JsonReader;
+import com.swaglabs.drivers.GUIDriver;
+import com.swaglabs.pages.LandingPage;
+import com.swaglabs.pages.LoginPage;
+import com.swaglabs.utils.TimeManager;
+import com.swaglabs.utils.dataReader.JsonReader;
 import io.qameta.allure.*;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;

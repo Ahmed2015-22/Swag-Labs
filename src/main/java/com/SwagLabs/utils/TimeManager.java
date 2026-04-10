@@ -1,4 +1,4 @@
-package com.SwagLabs.utils;
+package com.swaglabs.utils;
 
 public class TimeManager {
     //screenshots - logs - reports

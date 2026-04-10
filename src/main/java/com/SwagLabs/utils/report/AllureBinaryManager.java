@@ -1,8 +1,8 @@
-package com.SwagLabs.utils.report;
+package com.swaglabs.utils.report;
 
-import com.SwagLabs.utils.OSUtils;
-import com.SwagLabs.utils.TerminalUtils;
-import com.SwagLabs.utils.logs.LogsManager;
+import com.swaglabs.utils.OSUtils;
+import com.swaglabs.utils.TerminalUtils;
+import com.swaglabs.utils.logs.LogsManager;
 import org.jsoup.Jsoup;
 
 import java.io.BufferedInputStream;

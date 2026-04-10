@@ -1,7 +1,7 @@
-package com.SwagLabs.drivers;
+package com.swaglabs.drivers;
 
-import com.SwagLabs.utils.dataReader.PropertyReader;
-import com.SwagLabs.utils.logs.LogsManager;
+import com.swaglabs.utils.dataReader.PropertyReader;
+import com.swaglabs.utils.logs.LogsManager;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.UnexpectedAlertBehaviour;
 import org.openqa.selenium.WebDriver;
@@ -36,7 +36,6 @@ public class ChromeFactory extends AbstractDriver {
         options.setCapability(CapabilityType.UNHANDLED_PROMPT_BEHAVIOUR, UnexpectedAlertBehaviour.IGNORE);
         options.setCapability(CapabilityType.ENABLE_DOWNLOADS, true);
         options.setAcceptInsecureCerts(true);
-        options.addExtensions(haramBlurExtension);
         switch (PropertyReader.getProperty("executionType"))
         {
             case "LocalHeadless" -> options.addArguments("--headless=new");

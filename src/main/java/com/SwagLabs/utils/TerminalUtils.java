@@ -1,6 +1,6 @@
-package com.SwagLabs.utils;
+package com.swaglabs.utils;
 
-import com.SwagLabs.utils.logs.LogsManager;
+import com.swaglabs.utils.logs.LogsManager;
 
 import java.io.IOException;
 

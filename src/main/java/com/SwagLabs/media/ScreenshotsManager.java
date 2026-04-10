@@ -1,8 +1,8 @@
-package com.SwagLabs.media;
+package com.swaglabs.media;
 
-import com.SwagLabs.utils.TimeManager;
-import com.SwagLabs.utils.logs.LogsManager;
-import com.SwagLabs.utils.report.AllureAttachmentManager;
+import com.swaglabs.utils.TimeManager;
+import com.swaglabs.utils.logs.LogsManager;
+import com.swaglabs.utils.report.AllureAttachmentManager;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
@@ -15,7 +15,7 @@ public class ScreenshotsManager {
 
     public static final String SCREENSHOTS_PATH = "test-output/screenshots/";
 
-    //take full page screenshot
+    /*take full page screenshot
     public static void takeFullPageScreenshot(WebDriver driver, String screenshotName) {
         try {
             // Capture screenshot using TakesScreenshot
@@ -27,6 +27,21 @@ public class ScreenshotsManager {
 
 
             AllureAttachmentManager.attachScreenshot(screenshotName,screenshotFile.getAbsolutePath());
+
+            LogsManager.info("Capturing Screenshot Succeeded");
+        } catch (Exception e) {
+            LogsManager.error("Failed to Capture Screenshot " + e.getMessage());
+        }
+    }*/
+    public static void takeFullPageScreenshot(WebDriver driver, String screenshotName) {
+        try {
+            byte[] screenshotBytes = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+
+            File screenshotFile = new File(SCREENSHOTS_PATH + screenshotName + "-" + TimeManager.getTimestamp() + ".png");
+            FileUtils.writeByteArrayToFile(screenshotFile, screenshotBytes);
+
+            // Attach directly to Allure
+            AllureAttachmentManager.attachScreenshot(screenshotName, screenshotBytes);
 
             LogsManager.info("Capturing Screenshot Succeeded");
         } catch (Exception e) {

@@ -1,19 +1,18 @@
-package com.SwagLabs.utils.report;
+package com.swaglabs.utils.report;
 
-import com.SwagLabs.utils.OSUtils;
-import com.SwagLabs.utils.TerminalUtils;
-import com.SwagLabs.utils.TimeManager;
-import com.SwagLabs.utils.logs.LogsManager;
+import com.swaglabs.utils.OSUtils;
+import com.swaglabs.utils.TerminalUtils;
+import com.swaglabs.utils.TimeManager;
+import com.swaglabs.utils.logs.LogsManager;
 import org.apache.commons.io.FileUtils;
-import org.testng.util.TimeUtils;
 
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.SwagLabs.utils.dataReader.PropertyReader.getProperty;
-import static com.SwagLabs.utils.report.AllureConstants.HISTORY_FOLDER;
-import static com.SwagLabs.utils.report.AllureConstants.RESULTS_HISTORY_FOLDER;
+import static com.swaglabs.utils.dataReader.PropertyReader.getProperty;
+import static com.swaglabs.utils.report.AllureConstants.HISTORY_FOLDER;
+import static com.swaglabs.utils.report.AllureConstants.RESULTS_HISTORY_FOLDER;
 
 public class AllureReportGenerator {
     //Generate Allure report
@@ -35,7 +34,7 @@ public class AllureReportGenerator {
     //rename report file to AllureReport_timestamp.html
     public static String renameReport() {
         String newFileName = AllureConstants.REPORT_PREFIX + TimeManager.getTimestamp() + AllureConstants.REPORT_EXTENSION; // AllureReport_20250720_211230.html
-        com.SwagLabs.FileUtils.renameFile(AllureConstants.REPORT_PATH.resolve(AllureConstants.INDEX_HTML).toString(), newFileName);
+        com.swaglabs.FileUtils.renameFile(AllureConstants.REPORT_PATH.resolve(AllureConstants.INDEX_HTML).toString(), newFileName);
         return newFileName;
     }
 
@@ -45,7 +44,13 @@ public class AllureReportGenerator {
 
         Path reportPath = AllureConstants.REPORT_PATH.resolve(reportFileName);
         switch (OSUtils.getCurrentOS()) {
-            case WINDOWS -> TerminalUtils.executeTerminalCommand("cmd.exe", "/c", "start", reportPath.toString());
+            case WINDOWS -> TerminalUtils.executeTerminalCommand(
+                    "cmd.exe",
+                    "/c",
+                    "start",
+                    "\"\"",
+                    "\"" + reportPath.toString() + "\""
+            );
             case MAC, LINUX -> TerminalUtils.executeTerminalCommand("open", reportPath.toString());
             default -> LogsManager.warn("Opening Allure Report is not supported on this OS.");
         }

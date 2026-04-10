@@ -1,6 +1,6 @@
-package com.SwagLabs.pages;
+package com.swaglabs.pages;
 
-import com.SwagLabs.drivers.GUIDriver;
+import com.swaglabs.drivers.GUIDriver;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 

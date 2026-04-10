@@ -1,4 +1,4 @@
-package com.SwagLabs.validations;
+package com.swaglabs.validations;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;

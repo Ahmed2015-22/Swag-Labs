@@ -1,11 +1,11 @@
-package com.SwagLabs.utils.report;
+package com.swaglabs.utils.report;
 
 
 import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import static com.SwagLabs.utils.dataReader.PropertyReader.getProperty;
+import static com.swaglabs.utils.dataReader.PropertyReader.getProperty;
 
 public class AllureConstants {
     //Paths > final - static

@@ -1,13 +1,13 @@
-package com.SwagLabs.drivers;
+package com.swaglabs.drivers;
 
-import com.SwagLabs.utils.actions.AlertActions;
-import com.SwagLabs.utils.actions.BrowserActions;
-import com.SwagLabs.utils.actions.ElementActions;
-import com.SwagLabs.utils.actions.FrameActions;
-import com.SwagLabs.utils.dataReader.PropertyReader;
-import com.SwagLabs.utils.logs.LogsManager;
-import com.SwagLabs.validations.Validation;
-import com.SwagLabs.validations.Verification;
+import com.swaglabs.utils.actions.AlertActions;
+import com.swaglabs.utils.actions.BrowserActions;
+import com.swaglabs.utils.actions.ElementActions;
+import com.swaglabs.utils.actions.FrameActions;
+import com.swaglabs.utils.dataReader.PropertyReader;
+import com.swaglabs.utils.logs.LogsManager;
+import com.swaglabs.validations.Validation;
+import com.swaglabs.validations.Verification;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ThreadGuard;
 
@@ -21,6 +21,7 @@ public class GUIDriver {
         LogsManager.info("Starting driver for browser: " + browserType);
         AbstractDriver abstractDriver = browserType.getDriverFactory(); //local
         WebDriver driver = ThreadGuard.protect(abstractDriver.createDriver());
+
         driverThreadLocal.set(driver);
     }
 
@@ -49,6 +50,13 @@ public class GUIDriver {
     }
 
     public  void quitDriver() {
-        driverThreadLocal.get().quit();
+        //driverThreadLocal.get().quit();
+        if (get() != null) {
+            get().quit();
+            driverThreadLocal.remove(); // مهم جداً لمسح الـ reference من الـ thread
+        }
     }
+
+
+
 }

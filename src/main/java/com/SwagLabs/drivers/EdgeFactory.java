@@ -1,17 +1,15 @@
-package com.SwagLabs.drivers;
+package com.swaglabs.drivers;
 
-import com.SwagLabs.utils.dataReader.PropertyReader;
-import com.SwagLabs.utils.logs.LogsManager;
+import com.swaglabs.utils.dataReader.PropertyReader;
+import com.swaglabs.utils.logs.LogsManager;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.UnexpectedAlertBehaviour;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
-import java.io.File;
 import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
@@ -37,7 +35,9 @@ public class EdgeFactory extends AbstractDriver {
         options.setCapability(CapabilityType.ENABLE_DOWNLOADS, true);
         options.setAcceptInsecureCerts(true);
         options.setPageLoadStrategy(PageLoadStrategy.EAGER);
-        options.addExtensions(haramBlurExtension);
+        options.addExtensions(addBlock);
+        //options.addExtensions(addBlock1);
+        //options.addExtensions(addBlock2);
         switch (PropertyReader.getProperty("executionType"))
         {
             case "LocalHeadless" -> options.addArguments("--headless=new");

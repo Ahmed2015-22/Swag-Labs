@@ -1,8 +1,7 @@
-package com.SwagLabs.pages;
+package com.swaglabs.pages;
 
-import com.SwagLabs.drivers.GUIDriver;
-import com.SwagLabs.utils.dataReader.PropertyReader;
-import com.SwagLabs.pages.LandingPage;
+import com.swaglabs.drivers.GUIDriver;
+import com.swaglabs.utils.dataReader.PropertyReader;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 

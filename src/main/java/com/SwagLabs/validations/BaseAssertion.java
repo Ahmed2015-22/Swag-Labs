@@ -1,8 +1,8 @@
-package com.SwagLabs.validations;
+package com.swaglabs.validations;
 
-import com.SwagLabs.FileUtils;
-import com.SwagLabs.utils.WaitManager;
-import com.SwagLabs.utils.actions.ElementActions;
+import com.swaglabs.FileUtils;
+import com.swaglabs.utils.WaitManager;
+import com.swaglabs.utils.actions.ElementActions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 

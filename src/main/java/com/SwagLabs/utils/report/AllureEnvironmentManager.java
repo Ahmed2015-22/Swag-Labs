@@ -1,11 +1,11 @@
-package com.SwagLabs.utils.report;
+package com.swaglabs.utils.report;
 
-import com.SwagLabs.utils.logs.LogsManager;
+import com.swaglabs.utils.logs.LogsManager;
 import com.google.common.collect.ImmutableMap;
 
 import java.io.File;
 
-import static com.SwagLabs.utils.dataReader.PropertyReader.getProperty;
+import static com.swaglabs.utils.dataReader.PropertyReader.getProperty;
 import static com.github.automatedowl.tools.AllureEnvironmentWriter.allureEnvironmentWriter;
 
 public class AllureEnvironmentManager {

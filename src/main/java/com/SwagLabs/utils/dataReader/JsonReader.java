@@ -1,6 +1,6 @@
-package com.SwagLabs.utils.dataReader;
+package com.swaglabs.utils.dataReader;
 
-import com.SwagLabs.utils.logs.LogsManager;
+import com.swaglabs.utils.logs.LogsManager;
 import com.jayway.jsonpath.JsonPath;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;

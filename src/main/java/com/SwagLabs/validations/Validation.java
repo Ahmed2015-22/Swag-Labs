@@ -1,6 +1,6 @@
-package com.SwagLabs.validations;
+package com.swaglabs.validations;
 
-import com.SwagLabs.utils.logs.LogsManager;
+import com.swaglabs.utils.logs.LogsManager;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
 import org.testng.asserts.SoftAssert;

@@ -1,20 +1,17 @@
-package com.SwagLabs.utils.report;
+package com.swaglabs.utils.report;
 
-import com.SwagLabs.media.ScreenRecordManager;
-import com.SwagLabs.utils.logs.LogsManager;
+import com.swaglabs.utils.logs.LogsManager;
 import io.qameta.allure.Allure;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.core.LoggerContext;
 
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.nio.file.Files;
-import java.nio.file.Path;
-
-import static com.SwagLabs.utils.dataReader.PropertyReader.getProperty;
 
 public class AllureAttachmentManager {
     // attachScreenshot, attachLogs, attachRecords methods would go here
-    public static void attachScreenshot(String name, String path) {
+    /*public static void attachScreenshot(String name, String path) {
         try {
             Path screenshot = Path.of(path);
             if (Files.exists(screenshot)) {
@@ -25,6 +22,14 @@ public class AllureAttachmentManager {
         } catch (Exception e) {
             LogsManager.error("Error attaching screenshot", e.getMessage());
         }
+    }*/
+    public static void attachScreenshot(String name, byte[] screenshotBytes) {
+        Allure.addAttachment(
+                name,
+                "image/png",
+                new ByteArrayInputStream(screenshotBytes),
+                ".png"
+        );
     }
 
     public static void attachLogs() {
@@ -40,17 +45,6 @@ public class AllureAttachmentManager {
         }
     }
 
-    public static void attachRecords(String testMethodName) {
-        if (getProperty("recordTests").equalsIgnoreCase("true")) {
-            try {
-                File record = new File(ScreenRecordManager.RECORDINGS_PATH + testMethodName);
-                if (record != null && record.getName().endsWith(".mp4")) {
-                    Allure.addAttachment(testMethodName, "video/mp4", Files.newInputStream(record.toPath()), ".mp4");
-                }
-            } catch (Exception e) {
-                LogsManager.error("Error attaching records", e.getMessage());
-            }
-        }
-    }
+
 
 }

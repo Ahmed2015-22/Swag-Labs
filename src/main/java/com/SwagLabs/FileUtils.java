@@ -1,7 +1,7 @@
-package com.SwagLabs;
+package com.swaglabs;
 
-import com.SwagLabs.utils.dataReader.PropertyReader;
-import com.SwagLabs.utils.logs.LogsManager;
+import com.swaglabs.utils.dataReader.PropertyReader;
+import com.swaglabs.utils.logs.LogsManager;
 
 import java.io.File;
 import java.io.IOException;

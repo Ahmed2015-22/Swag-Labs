@@ -1,8 +1,8 @@
-package com.SwagLabs;
+package com.swaglabs;
 
-import com.SwagLabs.drivers.GUIDriver;
-import com.SwagLabs.drivers.WebDriverProvider;
-import com.SwagLabs.utils.dataReader.JsonReader;
+import com.swaglabs.drivers.GUIDriver;
+import com.swaglabs.drivers.WebDriverProvider;
+import com.swaglabs.utils.dataReader.JsonReader;
 import org.openqa.selenium.WebDriver;
 
 public class BaseTest implements WebDriverProvider {
