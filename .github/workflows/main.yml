@@ -21,8 +21,6 @@ jobs:
           distribution: "temurin"
           cache: maven
 
-      - name: Set up Edge Browser
-        uses: browser-actions/setup-edge@v1
 
       - name: Run Selenium Tests
         run: mvn clean test -DsuiteXmlFile=testng.xml
