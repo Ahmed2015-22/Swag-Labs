@@ -9,6 +9,12 @@ on:
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
+# مهم جداً: إعطاء الصلاحيات للـ Pipeline عشان يقدر يرفع التقرير لـ GitHub Pages
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
 jobs:
   selenium-run:
     runs-on: ubuntu-latest
@@ -24,11 +30,14 @@ jobs:
           distribution: "temurin"
           cache: maven
 
+      - name: Prepare Environment for Allure History
+        run: mkdir -p test-output/full-report/history
+
       - name: Run Selenium Tests & Generate Report
-        run: mvn clean test -DsuiteXmlFile=testng.xml
+        run: mvn clean test -DsuiteXmlFile=testng.xml -DexecutionType=ci
         continue-on-error: true
 
-      - name: Upload Allure Results
+      - name: Upload Allure Results (Artifact)
         if: always()
         uses: actions/upload-artifact@v4
         with:
@@ -36,5 +45,13 @@ jobs:
           path: |
             test-output/allure-results/
             test-output/full-report/
-            test-output/reports/
           retention-days: 7
+
+      # الخطوة السحرية: رفع التقرير لـ GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        if: always()
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: test-output/full-report/
