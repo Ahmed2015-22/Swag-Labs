@@ -79,7 +79,7 @@ This framework integrates **Allure Reports** for advanced test reporting.
 
 ```bash
 mvn clean test
-allure serve
+cd allure serve
 ```
 
 ### 📁 Generate Static Report
