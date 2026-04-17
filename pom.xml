@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.automationexercices</groupId>
-    <artifactId>FRM</artifactId>
+    <groupId>com.swaglabs</groupId>
+    <artifactId>SwagLabs</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -27,10 +27,16 @@
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>testng.xml</suiteXmlFile>
+                    </suiteXmlFiles>
+                    <properties>
+                        <property>
+                            <name>suitethreadpoolsize</name>
+                            <value>2</value>
+                        </property>
+                    </properties>
                 </configuration>
-                <dependencies>
-
-                </dependencies>
             </plugin>
         </plugins>
     </build>
@@ -40,7 +46,7 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>4.41.0</version>
+            <version>4.43.0</version>
             <scope>compile</scope>
         </dependency>
         <!-- Source: https://mvnrepository.com/artifact/org.testng/testng -->
@@ -50,12 +56,7 @@
             <version>7.12.0</version>
             <scope>compile</scope>
         </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <version>5.10.0</version>
-            <scope>compile</scope>
-        </dependency>
+
         <!-- Source: https://mvnrepository.com/artifact/commons-io/commons-io -->
         <dependency>
             <groupId>commons-io</groupId>
@@ -133,13 +134,7 @@
             <version>1.22.1</version>
             <scope>compile</scope>
         </dependency>
-        <!-- Source: https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-devtools-v145 -->
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-devtools-v145</artifactId>
-            <version>4.41.0</version>
-            <scope>compile</scope>
-        </dependency>
+
         <!-- Source: https://mvnrepository.com/artifact/com.github.javafaker/javafaker -->
         <dependency>
             <groupId>com.github.javafaker</groupId>
