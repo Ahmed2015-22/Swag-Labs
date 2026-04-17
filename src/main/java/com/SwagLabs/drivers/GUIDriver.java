@@ -13,7 +13,8 @@ import org.openqa.selenium.support.ThreadGuard;
 
 public class GUIDriver {
     private final String browser = PropertyReader.getProperty("browserType");
-    private  ThreadLocal<WebDriver> driverThreadLocal = new ThreadLocal<>();
+    //private  ThreadLocal<WebDriver> driverThreadLocal = new ThreadLocal<>();
+    private static final ThreadLocal<WebDriver> driverThreadLocal = new ThreadLocal<>();
     public GUIDriver()
     {
         LogsManager.info("Initializing GUIDriver with browser: " + browser);

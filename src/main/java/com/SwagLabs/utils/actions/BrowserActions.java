@@ -66,5 +66,22 @@ public class BrowserActions {
        LogsManager.info("Extension tab closed");
     }
 
+    /**
+     * Switch to the next available window/tab
+     */
+    public void switchToNewWindow() {
+        String parentHandle = driver.getWindowHandle();
+
+        waitManager.fluentWait().until(d -> d.getWindowHandles().size() > 1);
+
+        for (String handle : driver.getWindowHandles()) {
+            if (!handle.equals(parentHandle)) {
+                driver.switchTo().window(handle);
+                LogsManager.info("Switched to window with title: " + driver.getTitle());
+                break;
+            }
+        }
+    }
+
 
 }

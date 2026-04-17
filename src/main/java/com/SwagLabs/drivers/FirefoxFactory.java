@@ -109,7 +109,6 @@ public class FirefoxFactory extends AbstractDriver {
         profile.setPreference("privacy.popups.showBrowserMessage", false);
         profile.setPreference("dom.popup_maximum", 0);
 
-        // ✅ إضافة الـ Extension (xpi)
         if (fireFoxAddBlock.exists()) {
             profile.addExtension(fireFoxAddBlock);
             LogsManager.info("Extension added successfully");

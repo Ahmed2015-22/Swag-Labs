@@ -17,7 +17,7 @@ import java.io.File;
 
 public class TestNGListeners implements ISuiteListener, IExecutionListener, IInvokedMethodListener, ITestListener {
     public void onStart(ISuite suite) {
-        suite.getXmlSuite().setName("General Framework Suite");
+        //suite.getXmlSuite().setName("General Framework Suite");
     }
     public void onExecutionStart() {
         LogsManager.info("Test Execution started");
@@ -37,6 +37,7 @@ public class TestNGListeners implements ISuiteListener, IExecutionListener, IInv
         AllureReportGenerator.generateReports(true);
         AllureReportGenerator.openReport(AllureReportGenerator.renameReport());
         LogsManager.info("Test Execution Finished");
+
     }
 
 

@@ -8,7 +8,10 @@ import org.openqa.selenium.WebDriver;
 public class BaseTest implements WebDriverProvider {
 
     protected GUIDriver driver;
-    protected JsonReader testData;
+    protected JsonReader loginData;
+    protected JsonReader productsData;
+    protected JsonReader CheckoutData;
+    protected JsonReader OverviewData;
 
     @Override
     public WebDriver getWebDriver() {
