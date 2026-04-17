@@ -2,57 +2,124 @@
 
 ## 🔍 Project: Swag-Labs-TAF
 
-A **robust, maintainable, and scalable** Test Automation Framework (TAF) built with **Java**, **Selenium WebDriver**, and **TestNG**. This project implements industry best practices to ensure high-quality automation for the Swag Labs e-commerce platform.
+A **robust, maintainable, and scalable** Test Automation Framework (TAF) built using **Java**, **Selenium WebDriver**, and **TestNG**.
+This framework follows industry best practices to deliver reliable, reusable, and clean automated tests for the Swag Labs e-commerce platform.
 
 ---
 
 ## 🚀 Features
 
-* ✅ **Java + TestNG** based test execution.
-* 🧩 **Page Object Model (POM)** design pattern for maximum reusability.
-* 📊 **Data-Driven Testing** using **JSON files** for dynamic test inputs.
-* ⏳ **Explicit Waits Utility** for reliable element synchronization.
-* 📸 **Media Handling** for capturing screenshots and logs during execution.
-* 🪵 **Listeners** implementation for advanced test monitoring and reporting.
-* 🧱 **Clean Architecture** separating page actions from test logic.
-* ⚙️ **Environment-based execution** support (Local/Headless).
+* ✅ **Java + TestNG** for structured and scalable test execution
+* 🧩 **Page Object Model (POM)** for high reusability and maintainability
+* 📊 **Data-Driven Testing** using JSON files
+* ⏳ **Explicit Waits Utility** for stable execution
+* 📸 **Screenshot Capture** on failure
+* 🪵 **TestNG Listeners** for logging
+* 📊 **Allure Reporting Integration**
+* 🧱 **Clean Architecture**
+* ⚙️ **Environment Support** (Local & Headless)
+
+---
+
+## 🧰 Tech Stack
+
+* **Java 21**
+* **Selenium WebDriver 4**
+* **TestNG**
+* **Maven**
+* **Allure Reports**
+* **JSON**
 
 ---
 
 ## 🏗️ Framework Structure
 
-Based on the project's modular design:
-
 ```text
 ├── src/main/java/com/SwagLabs
-│   ├── pages           # Page Classes (P1_LoginPage, P2_ProductsPage, etc.)
-│   ├── drivers         # WebDriver configurations
-│   ├── listeners       # TestNG Listeners for reporting/logs
-│   ├── utils           # Utility classes (FileUtils, etc.)
-│   ├── validations     # Custom validation logic
-│   └── media           # Screenshot and media utilities
+│   ├── pages
+│   ├── drivers
+│   ├── listeners
+│   ├── utils
+│   ├── validations
+│   └── media
+│
 ├── src/test/java/com/SwagLabs
-│   ├── tests           # Test Cases (TC1_LoginTest to TC6_CompleteTest)
-│   └── BaseTest.java   # Setup and Teardown configurations
+│   ├── tests
+│   └── BaseTest.java
+│
 └── src/test/resources
-    └── test-data       # Data-driven JSON files (login-data.json, etc.)
+    └── test-data
 ```
-🧪 Scenarios Covered
-The framework automates the complete End-to-End flow:
 
-Login: Testing with multiple user roles using JSON data.
+---
 
-Products: Inventory navigation and product selection.
+## 🧪 Test Scenarios
 
-Cart: Validating cart items and persistence.
+* ✅ Login with valid / invalid users
+* ✅ Product selection & navigation
+* ✅ Add / remove items from cart
+* ✅ Checkout process validation
+* ✅ Order confirmation
 
-Checkout: Complete multi-step checkout process.
+---
 
-Overview & Finish: Final order verification and completion.
-Execute testng.xml or run via Maven:
+## 📊 Allure Report
+
+This framework integrates **Allure Reports** for advanced test reporting.
+
+### 📸 Report Preview
+
+> (Add screenshots here)
+
 ```
+/screenshots/allure-report.png
+```
+
+### ▶️ Generate Allure Report
+
+```bash
+mvn clean test
+allure serve
+```
+
+### 📁 Generate Static Report
+
+```bash
+allure generate target/allure-results --clean -o allure-report
+```
+
+---
+
+## ⚙️ Setup & Execution
+
+### 1️⃣ Clone the repository
+
+```bash
+git clone (https://github.com/Ahmed2015-22/Swag-Labs.git)
+Swag-Labs
+```
+
+### 2️⃣ Install dependencies
+
+```bash
+mvn clean install
+```
+
+### 3️⃣ Run tests
+
+```bash
 mvn clean test
 ```
+
+---
+
+## ⚡ Execution Options
+
+* 🖥️ Local Execution
+* 🕶️ Headless Mode
+
+---
+
 ## 👨‍💻 Author
 **Ahmed El-Sharkawi**  
 *Junior Test Automation Engineer*
